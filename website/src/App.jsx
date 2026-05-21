@@ -1515,8 +1515,7 @@ function CreovixAIPortfolio() {
         color: '#FFFFFF',
         padding: '100px 0 32px',
         borderTop: '1px solid #1E293B',
-        position: 'relative',
-        overflow: 'hidden'
+        position: 'relative'
       }}>
         {/* Subtle top glow line */}
         <div style={{
@@ -1744,7 +1743,12 @@ function CreovixAIPortfolio() {
           </div>
 
           {/* Bottom bar */}
-          <div style={{
+          <style>{`
+            @media (max-width: 540px) {
+              .footer-bottom { flex-direction: column !important; text-align: center !important; }
+            }
+          `}</style>
+          <div className="footer-bottom" style={{
             borderTop: '1px solid rgba(30, 41, 59, 0.6)',
             paddingTop: '24px',
             display: 'flex',
