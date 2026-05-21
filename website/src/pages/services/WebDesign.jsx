@@ -59,9 +59,14 @@ const WebDesign = (props) => {
         }
         .grid-3 {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           gap: 24px;
           margin: 48px 0;
+        }
+        @media (max-width: 576px) {
+          .grid-3 {
+            grid-template-columns: 1fr;
+          }
         }
         .grid-2 {
           display: grid;

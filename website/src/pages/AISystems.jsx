@@ -362,6 +362,17 @@ const AISystems = (props) => {
           0%, 80%, 100% { transform: scale(0); }
           40% { transform: scale(1); }
         }
+        .roi-metrics-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 16px;
+        }
+        @media (max-width: 576px) {
+          .roi-metrics-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+        }
       `}</style>
 
       <section className="ai-page">
@@ -506,7 +517,7 @@ const AISystems = (props) => {
                   ))}
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
+                <div className="roi-metrics-grid">
                   <div style={{ backgroundColor: '#FFFFFF', border: '1px solid #E2E8F0', padding: '16px', borderRadius: '10px', textAlign: 'center' }}>
                     <span style={{ fontSize: '24px', fontWeight: 800, color: '#2563EB', display: 'block' }}>{roi.hours} Hrs</span>
                     <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 600 }}>Manual Work Saved/mo</span>

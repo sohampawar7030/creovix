@@ -45,6 +45,30 @@ const Home = (props) => {
           text-align: left;
         }
 
+        .scraper-left-col {
+          flex: 1 1 380px;
+          padding: 32px;
+          border-right: 1px solid #1F2937;
+          background-color: #111827;
+        }
+        .scraper-right-col {
+          flex: 1 1 420px;
+          padding: 32px;
+          background-color: #0F172A;
+        }
+        @media (max-width: 768px) {
+          .scraper-left-col {
+            flex: 1 1 100% !important;
+            padding: 16px !important;
+            border-right: none !important;
+            border-bottom: 1px solid #1F2937 !important;
+          }
+          .scraper-right-col {
+            flex: 1 1 100% !important;
+            padding: 16px !important;
+          }
+        }
+
         .section-pad {
           padding: 56px 0;
         }
@@ -836,12 +860,7 @@ const Home = (props) => {
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   
                   {/* Left Column - Metrics & Anatomy */}
-                  <div style={{
-                    flex: '1 1 380px',
-                    padding: '32px',
-                    borderRight: '1px solid #1F2937',
-                    backgroundColor: '#111827'
-                  }}>
+                  <div className="scraper-left-col">
                     
                     {/* Circle gauge */}
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '32px', textAlign: 'center' }}>
@@ -997,11 +1016,7 @@ const Home = (props) => {
                   </div>
 
                   {/* Right Column - Audits, Benchmarks & Solutions */}
-                  <div style={{
-                    flex: '1 1 420px',
-                    padding: '32px',
-                    backgroundColor: '#0F172A'
-                  }}>
+                  <div className="scraper-right-col">
                     
                     {/* Technology Gap & Feature Analysis */}
                     {userScanReport.featureAnalysis && (

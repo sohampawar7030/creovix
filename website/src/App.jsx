@@ -55,14 +55,9 @@ const Logo = ({ isDark = false }) => {
       <img 
         src="/logo.jfif" 
         alt="CreovixAI Logo" 
+        className="app-logo-img"
         style={{ 
-          height: '75px', 
-          width: '75px', 
-          objectFit: 'contain',
-          borderRadius: '12px',
           filter: isDark ? 'drop-shadow(0 0 12px rgba(56, 189, 248, 0.8))' : 'drop-shadow(0 4px 12px rgba(15, 23, 42, 0.15)) drop-shadow(0 0 10px rgba(56, 189, 248, 0.6))',
-          transition: 'all 0.3s ease',
-          cursor: 'pointer'
         }}
         onMouseOver={(e) => {
           e.currentTarget.style.transform = 'scale(1.05)';
@@ -1214,6 +1209,26 @@ function CreovixAIPortfolio() {
           }
         }
 
+        .app-logo-img {
+          height: 75px;
+          width: 75px;
+          object-fit: contain;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+        @media (max-width: 480px) {
+          .app-logo-img {
+            height: 55px !important;
+            width: 55px !important;
+            border-radius: 8px !important;
+          }
+          .btn-primary {
+            padding: 8px 14px !important;
+            font-size: 11.5px !important;
+          }
+        }
+
         /* Section Spacing */
         .section-pad {
           padding: 100px 0;
@@ -1601,13 +1616,26 @@ function CreovixAIPortfolio() {
               @media (max-width: 968px) {
                 .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
               }
-              @media (max-width: 540px) {
-                .footer-grid { grid-template-columns: 1fr !important; }
+              @media (max-width: 768px) {
+                .footer-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+                .footer-col {
+                  align-items: center !important;
+                  text-align: center !important;
+                }
+                .footer-col ul {
+                  align-items: center !important;
+                }
+                .footer-col .contact-info {
+                  align-items: center !important;
+                }
+                .footer-col .contact-item {
+                  justify-content: center !important;
+                }
               }
             `}</style>
 
             {/* Col 1 — Brand */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }} className="footer-col">
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', gap: '12px' }}>
                 <Logo isDark={true} />
                 <div className="pulse-dot" />
@@ -1629,7 +1657,7 @@ function CreovixAIPortfolio() {
             </div>
 
             {/* Col 2 — Services */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }} className="footer-col">
               <h4 className="mono-font" style={{ fontSize: '11px', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', marginTop: 0 }}>
                 <span style={{ marginRight: '8px' }}>⚙</span>
                 Engineered Services
@@ -1665,7 +1693,7 @@ function CreovixAIPortfolio() {
             </div>
 
             {/* Col 3 — Quick Links */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }} className="footer-col">
               <h4 className="mono-font" style={{ fontSize: '11px', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', marginTop: 0 }}>
                 <span style={{ marginRight: '8px' }}>✦</span>
                 Digital Agency
@@ -1702,13 +1730,13 @@ function CreovixAIPortfolio() {
             </div>
 
             {/* Col 4 — Contact */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }} className="footer-col">
               <h4 className="mono-font" style={{ fontSize: '11px', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', marginTop: 0 }}>
                 <span style={{ marginRight: '8px' }}>✉</span>
                 Address & Reach
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: '#94A3B8', lineHeight: '1.6', marginBottom: '16px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div className="contact-info" style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: '#94A3B8', lineHeight: '1.6', marginBottom: '16px' }}>
+                <div className="contact-item" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <div style={{
                     width: '28px', height: '28px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
@@ -1717,7 +1745,7 @@ function CreovixAIPortfolio() {
                   </div>
                   <span>Pune, Maharashtra, India</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div className="contact-item" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <div style={{
                     width: '28px', height: '28px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
@@ -1726,7 +1754,7 @@ function CreovixAIPortfolio() {
                   </div>
                   <span>contact@creovixai.me</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div className="contact-item" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <div style={{
                     width: '28px', height: '28px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
@@ -1737,14 +1765,13 @@ function CreovixAIPortfolio() {
                 </div>
               </div>
 
-
             </div>
 
           </div>
 
           {/* Bottom bar */}
           <style>{`
-            @media (max-width: 540px) {
+            @media (max-width: 768px) {
               .footer-bottom { flex-direction: column !important; text-align: center !important; }
             }
           `}</style>
