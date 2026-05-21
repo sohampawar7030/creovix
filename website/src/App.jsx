@@ -1510,36 +1510,132 @@ function CreovixAIPortfolio() {
       </div>
 
       {/* SECTION 11 — FOOTER */}
-      <footer style={{ backgroundColor: '#0F172A', color: '#FFFFFF', padding: '80px 0 32px', borderTop: '1px solid #1E293B' }}>
-        <div className="container">
-          
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1fr', gap: '48px', marginBottom: '64px' }} className="footer-grid">
+      <footer style={{
+        backgroundColor: '#0F172A',
+        color: '#FFFFFF',
+        padding: '100px 0 32px',
+        borderTop: '1px solid #1E293B',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Subtle top glow line */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          background: 'linear-gradient(90deg, transparent, #38BDF8, #2563EB, #38BDF8, transparent)',
+          opacity: 0.6
+        }} />
+
+        {/* Decorative background dots */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: 'radial-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+          pointerEvents: 'none'
+        }} />
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+
+          {/* Newsletter / CTA strip */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(37, 99, 235, 0.08))',
+            border: '1px solid rgba(56, 189, 248, 0.15)',
+            borderRadius: '12px',
+            padding: '36px 40px',
+            marginBottom: '64px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '20px'
+          }}>
+            <div>
+              <h3 style={{ fontSize: '18px', fontWeight: 700, margin: '0 0 6px', color: '#FFFFFF' }}>
+                Ready to scale your brand?
+              </h3>
+              <p style={{ fontSize: '13px', color: '#94A3B8', margin: 0 }}>
+                Get a free consultation and performance audit for your business.
+              </p>
+            </div>
+            <a
+              href="#/contact"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 28px',
+                borderRadius: '8px',
+                backgroundColor: '#2563EB',
+                color: '#FFFFFF',
+                fontSize: '13px',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'all 0.25s ease',
+                boxShadow: '0 4px 14px rgba(37, 99, 235, 0.25)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#1D4ED8';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#2563EB';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 14px rgba(37, 99, 235, 0.25)';
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              Get Started
+            </a>
+          </div>
+
+          {/* Grid Columns */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1.2fr', gap: '48px', marginBottom: '64px', alignItems: 'start' }} className="footer-grid">
             <style>{`
-              @media (max-width: 768px) {
-                .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+              @media (max-width: 968px) {
+                .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
               }
-              @media (max-width: 480px) {
+              @media (max-width: 540px) {
                 .footer-grid { grid-template-columns: 1fr !important; }
               }
             `}</style>
 
             {/* Col 1 — Brand */}
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', gap: '12px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', gap: '12px' }}>
                 <Logo isDark={true} />
                 <div className="pulse-dot" />
               </div>
-              <p style={{ fontSize: '13px', color: '#94A3B8', lineHeight: '1.6', maxWidth: '240px' }}>
+              <p style={{ fontSize: '13px', color: '#94A3B8', lineHeight: '1.8', margin: '0 0 20px' }}>
                 Modern speed-optimized websites and AI-powered systems engineered for educational coaching academies, preschools, and growing commercial industries.
               </p>
+              {/* Trust badge */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: '#64748B' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span>Verified Agency</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: '#64748B' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <span>4.9 ★ (120+)</span>
+                </div>
+              </div>
             </div>
 
             {/* Col 2 — Services */}
-            <div>
-              <h4 className="mono-font" style={{ fontSize: '11px', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <h4 className="mono-font" style={{ fontSize: '11px', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', marginTop: 0 }}>
+                <span style={{ marginRight: '8px' }}>⚙</span>
                 Engineered Services
               </h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {[
                   'Website Design',
                   'AI Chatbot Flows',
@@ -1551,10 +1647,17 @@ function CreovixAIPortfolio() {
                   <li key={idx}>
                     <span 
                       onClick={() => navigateTo('services')}
-                      style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }}
-                      onMouseEnter={(e) => e.target.style.color = '#FFFFFF'}
-                      onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
+                      style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', cursor: 'pointer', transition: 'all 0.2s', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = '#FFFFFF';
+                        e.currentTarget.style.transform = 'translateX(4px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = '#94A3B8';
+                        e.currentTarget.style.transform = 'translateX(0)';
+                      }}
                     >
+                      <span style={{ fontSize: '8px', color: '#475569', transition: 'color 0.2s' }}>▸</span>
                       {item}
                     </span>
                   </li>
@@ -1563,11 +1666,12 @@ function CreovixAIPortfolio() {
             </div>
 
             {/* Col 3 — Quick Links */}
-            <div>
-              <h4 className="mono-font" style={{ fontSize: '11px', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <h4 className="mono-font" style={{ fontSize: '11px', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', marginTop: 0 }}>
+                <span style={{ marginRight: '8px' }}>✦</span>
                 Digital Agency
               </h4>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {[
                   { label: 'Home Page', id: 'home' },
                   { label: 'Services Suite', id: 'services' },
@@ -1580,10 +1684,17 @@ function CreovixAIPortfolio() {
                   <li key={idx}>
                     <a
                       href={`#/${link.id}`}
-                      style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'color 0.2s' }}
-                      onMouseEnter={(e) => e.target.style.color = '#FFFFFF'}
-                      onMouseLeave={(e) => e.target.style.color = '#94A3B8'}
+                      style={{ fontSize: '13px', color: '#94A3B8', textDecoration: 'none', transition: 'all 0.2s', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = '#FFFFFF';
+                        e.currentTarget.style.transform = 'translateX(4px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = '#94A3B8';
+                        e.currentTarget.style.transform = 'translateX(0)';
+                      }}
                     >
+                      <span style={{ fontSize: '8px', color: '#475569', transition: 'color 0.2s' }}>▸</span>
                       {link.label}
                     </a>
                   </li>
@@ -1592,77 +1703,68 @@ function CreovixAIPortfolio() {
             </div>
 
             {/* Col 4 — Contact */}
-            <div>
-              <h4 className="mono-font" style={{ fontSize: '11px', color: '#FFFFFF', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <h4 className="mono-font" style={{ fontSize: '11px', color: '#38BDF8', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '20px', marginTop: 0 }}>
+                <span style={{ marginRight: '8px' }}>✉</span>
                 Address & Reach
               </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: '#94A3B8', lineHeight: '1.6', marginBottom: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#38BDF8' }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="12" r="3"/></svg>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px', color: '#94A3B8', lineHeight: '1.6', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '28px', height: '28px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                  }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
                   <span>Pune, Maharashtra, India</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#38BDF8' }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  <span>contact@creovixai.com</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '28px', height: '28px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                  }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <span>contact@creovixai.me</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#38BDF8' }}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                  <span>+91 99999 99999</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '28px', height: '28px', borderRadius: '6px', backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
+                  }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <span>+91 7030806080</span>
                 </div>
               </div>
 
-              {/* Social icons row */}
-              <div style={{ display: 'flex', gap: '10px', marginTop: '16px' }}>
-                {['LinkedIn', 'Instagram', 'GitHub'].map((social, i) => (
-                  <span
-                    key={i}
-                    onClick={() => window.open('https://github.com', '_blank')}
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '50%',
-                      backgroundColor: '#1E293B',
-                      color: '#94A3B8',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '11px',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      transition: 'background-color 0.2s ease, color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#2563EB';
-                      e.currentTarget.style.color = '#FFFFFF';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = '#1E293B';
-                      e.currentTarget.style.color = '#94A3B8';
-                    }}
-                  >
-                    {social[0]}
-                  </span>
-                ))}
-              </div>
+
             </div>
 
           </div>
 
           {/* Bottom bar */}
           <div style={{
-            borderTop: '1px solid #1E293B',
+            borderTop: '1px solid rgba(30, 41, 59, 0.6)',
             paddingTop: '24px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '16px'
+            gap: '12px'
           }}>
             <div className="mono-font" style={{ fontSize: '12px', color: '#64748B' }}>
-              © 2026 CreovixAI Digital Agency. All rights reserved.
+              © 2026 <span style={{ color: '#38BDF8' }}>CreovixAI</span> Digital Agency. All rights reserved.
             </div>
-            <div className="mono-font" style={{ fontSize: '12px', color: '#64748B' }}>
-              Made with ♥ in Pune
+            <div style={{ display: 'flex', gap: '20px', fontSize: '12px', color: '#64748B' }}>
+              <span style={{ cursor: 'pointer', transition: 'color 0.2s' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#94A3B8'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#64748B'}
+              >Privacy Policy</span>
+              <span style={{ cursor: 'pointer', transition: 'color 0.2s' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#94A3B8'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#64748B'}
+              >Terms of Service</span>
             </div>
           </div>
 
