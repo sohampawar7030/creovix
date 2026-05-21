@@ -87,6 +87,7 @@ function CreovixAIPortfolio() {
     message: ''
   });
   const [formSent, setFormSent] = useState(false);
+  const [formSending, setFormSending] = useState(false);
 
   // Custom Hash Router State
   const [currentPage, setCurrentPage] = useState('home');
@@ -984,18 +985,30 @@ function CreovixAIPortfolio() {
     window.location.hash = `#/${pageId}`;
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone) {
       alert('Please fill in Name, Phone Number, and Email Address.');
       return;
     }
-    // Simulate submission
-    setFormSent(true);
-    setFormData({ name: '', business: '', phone: '', email: '', message: '' });
-    setTimeout(() => {
-      setFormSent(false);
-    }, 8000);
+    setFormSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error('Failed to send');
+      setFormSent(true);
+      setFormData({ name: '', business: '', phone: '', email: '', message: '' });
+      setTimeout(() => {
+        setFormSent(false);
+      }, 8000);
+    } catch (err) {
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setFormSending(false);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -1086,6 +1099,7 @@ function CreovixAIPortfolio() {
     testimonialIdx, setTestimonialIdx,
     formData, setFormData,
     formSent, setFormSent,
+    formSending, setFormSending,
     currentPage, setCurrentPage,
     statsTriggered, setStatsTriggered,
     calcTraffic, setCalcTraffic,
@@ -1350,7 +1364,7 @@ function CreovixAIPortfolio() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <button
               className="btn-primary"
-              onClick={() => window.open('https://wa.me/919999999999', '_blank')}
+              onClick={() => window.open('https://wa.me/917030806080', '_blank')}
               style={{
                 backgroundColor: '#2563EB',
                 color: '#FFFFFF',
@@ -1468,7 +1482,7 @@ function CreovixAIPortfolio() {
 
       {/* FLOATING WHATSAPP BUTTON */}
       <div 
-        onClick={() => window.open('https://wa.me/919999999999', '_blank')}
+        onClick={() => window.open('https://wa.me/917030806080', '_blank')}
         className="whatsapp-bounce"
         style={{
           position: 'fixed',

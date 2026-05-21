@@ -8,6 +8,7 @@ const Contact = (props) => {
     testimonialIdx, setTestimonialIdx,
     formData, setFormData,
     formSent, setFormSent,
+    formSending, setFormSending,
     currentPage, setCurrentPage,
     statsTriggered, setStatsTriggered,
     calcTraffic, setCalcTraffic,
@@ -220,19 +221,20 @@ const Contact = (props) => {
                       <button
                         type="submit"
                         className="btn-primary"
+                        disabled={formSending}
                         style={{
-                          backgroundColor: '#2563EB',
+                          backgroundColor: formSending ? '#93C5FD' : '#2563EB',
                           color: '#FFFFFF',
                           border: 'none',
                           padding: '14px',
                           borderRadius: '6px',
                           fontWeight: 700,
                           fontSize: '15px',
-                          cursor: 'pointer',
+                          cursor: formSending ? 'not-allowed' : 'pointer',
                           marginTop: '8px'
                         }}
                       >
-                        Send Inquiry Message →
+                        {formSending ? 'Sending...' : 'Send Inquiry Message →'}
                       </button>
 
                     </form>
@@ -260,7 +262,7 @@ const Contact = (props) => {
                           This is the absolute fastest way to establish direct dialogue.
                         </p>
                         <button
-                          onClick={() => window.open('https://wa.me/919999999999', '_blank')}
+                          onClick={() => window.open('https://wa.me/917030806080', '_blank')}
                           style={{
                             backgroundColor: '#25D366',
                             color: '#FFFFFF',
@@ -297,8 +299,8 @@ const Contact = (props) => {
                         <p style={{ fontSize: '14px', color: '#64748B', marginBottom: '8px' }}>
                           For project RFPs, institutional documentation, or partnerships:
                         </p>
-                        <a href="mailto:contact@creovixai.com" style={{ fontSize: '15px', color: '#2563EB', fontWeight: 600, textDecoration: 'none' }}>
-                          contact@creovixai.com
+                        <a href="mailto:contact@creovixai.me" style={{ fontSize: '15px', color: '#2563EB', fontWeight: 600, textDecoration: 'none' }}>
+                          contact@creovixai.me
                         </a>
                       </div>
                     </div>
@@ -321,7 +323,7 @@ const Contact = (props) => {
                           Setup a dedicated 30-minute consultation call with CreovixAI.
                         </p>
                         <button
-                          onClick={() => window.open('https://wa.me/919999999999', '_blank')}
+                          onClick={() => window.open('https://wa.me/917030806080', '_blank')}
                           style={{
                             backgroundColor: 'transparent',
                             color: '#2563EB',
