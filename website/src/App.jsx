@@ -1156,17 +1156,14 @@ function CreovixAIPortfolio() {
           -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Responsive Container */
         .container {
           width: 100%;
-          max-width: 1200px;
+          max-width: 100%;
           margin: 0 auto;
-          padding: 0 40px;
+          padding: 0 60px;
         }
         @media (max-width: 768px) {
-          .container {
-            padding: 0 24px;
-          }
+          .container { padding: 0 32px; }
         }
 
         /* Pulse Logo Dot */

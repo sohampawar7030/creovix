@@ -74,9 +74,12 @@ const Home = (props) => {
         }
 
         .container {
-          max-width: 1200px;
+          max-width: 100%;
           margin: 0 auto;
-          padding: 0 24px;
+          padding: 0 60px;
+        }
+        @media (max-width: 768px) {
+          .container { padding: 0 32px; }
         }
 
         /* Typography */
